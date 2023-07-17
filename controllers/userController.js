@@ -9,4 +9,5 @@ module.exports = {
     async getAllUsers(req, res) {
         try {
             const userData = await Users.find().populate('thoughts').populate('friends');
+            
         }
