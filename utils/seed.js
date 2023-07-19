@@ -1,37 +1,49 @@
 // set up seed data
 
 //connection
-const connection = require('./connection');
+const connection = require('../config/connection');
 
 // import the models
-const { User, Thought } = require('../models');
+const { Users, Thoughts } = require('../models');
 const { userNames, emailAddresses } = require('./data');
 
-connection.once('open', async () => {
-    console.log('Connected to the database.');
-});
+// connection.once('open', async () => {
+//     console.log('Connected to the database.');
 
 // clear existing data
-await User.deleteMany({});
-await Thought.deleteMany({});
-
-// create users
-const users = [];
-for (let i = 0; i < userNames.length; i++) {
-    const user = await User.create({ userName: userNames[i], emailAddress: emailAddresses[i] });
-    users.push(user);
-};
+//TODO: 
+connection.once('open', async () => {
+    console.log('Connected to the database');
+  
+    // Clear existing data
+    await Thought.deleteMany({});
+    await User.deleteMany({});
+  
+    // Create users
+    const users = [];
+    for (let i = 0; i < 10; i++) {
+      users.push({
+        username: usernames[i],
+        email: emails[i],
+      });
+    }
+    await User.insertMany(users);
+    console.log('Users seeded successfully');
+  
+    console.log('Seeding complete!');
+    process.exit(0);
+  });
 
 // create thoughts
 const thoughts = [];
 for (let i = 0; i < 100; i++) {
-    const thought = await Thought.create({ thoughtText: `Thought ${i}`, userName: users[Math.floor(Math.random() * users.length)].userName });
+    const thought = await Thoughts.create({ thoughtText: `Thought ${i}`, userName: users[Math.floor(Math.random() * users.length)].userName });
     thoughts.push(thought);
 }
 
 // create reactions
 for (let i = 0; i < 100; i++) {
-    const reaction = await Thought.create({ reactionBody: `Reaction ${i}`, userName: users[Math.floor(Math.random() * users.length)].userName });
+    const reaction = await Thoughts.create({ reactionBody: `Reaction ${i}`, userName: users[Math.floor(Math.random() * users.length)].userName });
     reactions.push(reaction);
 }
 
