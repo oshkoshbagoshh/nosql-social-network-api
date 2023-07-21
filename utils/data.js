@@ -14,6 +14,11 @@ const userNames = [
     'Lizzie Mccoy',
     'Lottie Mccoy'
 ];
+// trim the usernames and make them lowercase
+userNames.forEach((userName, index) => {
+    userNames[index] = userName.trim().toLowerCase();
+});
+console.log(userNames);
 
 const emailAddresses = [
     'JohnDoe@gmail.com',

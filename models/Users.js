@@ -3,7 +3,7 @@ const {Schema, model} = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema({
-    userName: {
+    userNames: {
         type: String,
         required: true,
         unique: true,
