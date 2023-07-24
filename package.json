@@ -1,7 +1,7 @@
 {
   "name": "nosql-social-network-api",
   "version": "1.0.0",
-  "description": "“¯\\_(ツ)_/¯“",
+  "description": "A social network API built with NoSQL",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
     "seed": "node utils/seed.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "AJ Javadi",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
