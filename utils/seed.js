@@ -1,85 +1,50 @@
-// set up seed data
-
-//connection
+const {User} = require('../models');
 const connection = require('../config/connection');
 
-// import the models
-const { Users, Thoughts } = require('../models');
-const { userNames, emailAddresses } = require('./data');
-console.log(userNames)
-// connection.once('open', async () => {
-//     console.log('Connected to the database.');
 
-const users = [];
-// clear existing data
-//TODO: 
+// seed data
+const users = [
+  {
+    username: 'lernantino',
+    email: 'lernantino@gmail.com',
+    thought: ['crop claws last row valley sign still mood bear horse greatest silk organization increase captain slope steep planned at we interior lay environment over'],
+  },
+  {
+    username: 'ajavadi',
+    email: 'ajavadi@gmail.com',
+    thought: ['chicken has shelf flower run school natural black brought transportation forty if glad doubt movie string compass we tune spell obtain party dropped that'],
+  },
+  {
+    username: 'Mike123',
+    email: 'Mike123@gmail.com',
+    thought: ['society of the spectacle'],
+  },
+  {
+    username: 'John123',
+    email: 'John123@gmail.com',
+    thought: ['the revolution will not be televised'],
+  },
+  {
+    username: 'Jane123',
+    email: 'Jane123@gmail.com',
+    thought: ['mmm Ice Cream so good!'],
+  },
+
+
+];
+
+// connect to server
 connection.once('open', async () => {
-    console.log('Connected to the database');
-  
-    // Clear existing data
-    await Thoughts.deleteMany({});
-    await Users.deleteMany({});
-  
-    // Create users
-    for (let i = 0; i < 10; i++) {
-      users.push({
-        userNames: userNames[i],
-        emailAddress: emailAddresses[i],
-      });
-      console.log(users);
-    }
-    await Users.insertMany(users);
-    console.log('Users seeded successfully');
-  
-    console.log('Seeding complete!');
-    process.exit(0);
-  });
+  // delete all data from the database
+  await User.deleteMany({});
+  // bulk create the data
+  await User.collection.insertMany(users);
 
-// create thoughts
-const thoughts = [];
+  console.table(users); // log the data
+  console.log('all done with seeding'); // log that the script is done
+  process.exit(0); // exit the script
+});
 
-var createThought = async function () {
+// run the script
 
-    
-    
-    for (let i = 0; i < 100; i++) {
-        // need to have async first
-        // const thought = await Thoughts.create({ thoughtText: `Thought ${i}`, userName: Users[Math.floor(Math.random() * Users.length
-        // thoughts.push(thought);
-    //   console.log(users[Math.floor(Math.random() * users.length)].username);
-    //   console.log(users)
 
-    }
-    
-}
-
-createThought();
-// // create reactions
-// for (let i = 0; i < 100; i++) {
-//     const reaction = await Thoughts.create({ reactionBody: `Reaction ${i}`, userName: users[Math.floor(Math.random() * users.length)].userName });
-//     reactions.push(reaction);
-// }
-
-// // add reactions to thoughts
-// for (let i = 0; i < thoughts.length; i++) {
-//     for (let j = 0; j < 10; j++) {
-//         const reaction = reactions[Math.floor(Math.random() * reactions.length)];
-//         thoughts[i].reactions.push(reaction);
-//     }
-//     await thoughts[i].save();
-// }
-
-// // add thoughts to users
-// for (let i = 0; i < users.length; i++) {
-//     for (let j = 0; j < 10; j++) {
-//         const thought = thoughts[Math.floor(Math.random() * thoughts.length)];
-//         users[i].thoughts.push(thought);
-//     }
-//     await users[i].save();
-// }   
-// // disconnect
-// await connection.close();
-// process.exit(0);
-
-// // console log 
-// console.log('Seed data has been added to the database.');

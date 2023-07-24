@@ -5,7 +5,7 @@ const routes = require('./routes');
 const app = express();
 const PORT = process.env.PORT || 3001;
 // set up variable for database connection
-const db = mongoose.connection;
+const db = require('./config/connection');
 // const seedUsers = require('./utils/seed');
 
 // middleware
