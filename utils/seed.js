@@ -1,4 +1,4 @@
-const {User} = require('../models');
+const { User } = require('../models');
 const connection = require('../config/connection');
 
 
@@ -36,7 +36,7 @@ const users = [
 // connect to server
 connection.once('open', async () => {
   // delete all data from the database
-  await User.deleteMany({});
+  await User.deleteMany({})
   // bulk create the data
   await User.collection.insertMany(users);
 
