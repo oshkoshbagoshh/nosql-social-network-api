@@ -5,11 +5,17 @@
 ┌─────────┬──────────────┬─────────────────────────┬────────────────────────────────────────────────────────────────────┬──────────────────────────────────────────┐
 │ (index) │   username   │          email          │                              thought                               │                   _id                    │
 ├─────────┼──────────────┼─────────────────────────┼────────────────────────────────────────────────────────────────────┼──────────────────────────────────────────┤
-│    0    │ 'lernantino' │ 'lernantino@gmail.com'  │    [ 'this is a test thought', 'this is another test thought' ]    │ new ObjectId("64c27715be509d05579acd51") │
-│    1    │  'ajavadi'   │   'ajavadi@gmail.com'   │                                 []                                 │ new ObjectId("64c27715be509d05579acd52") │
-│    2    │  'Mike123'   │   'Mike123@gmail.com'   │                   [ 'society of the spectacle' ]                   │ new ObjectId("64c27715be509d05579acd53") │
-│    3    │  'John123'   │   'John123@gmail.com'   │             [ 'the revolution will not be televised' ]             │ new ObjectId("64c27715be509d05579acd54") │
-│    4    │  'Jane123'   │   'Jane123@gmail.com'   │                   [ ' I think therefore I am' ]                    │ new ObjectId("64c27715be509d05579acd55") │
-│    5    │ 'Alanwat123' │ 'AlanWatt123@gmail.com' │ [ 'Reclaimation of your brain is worth moret than cash or fame.' ] │ new ObjectId("64c27715be509d05579acd56") │
+│    0    │ 'lernantino' │ 'lernantino@gmail.com'  │    [ 'this is a test thought', 'this is another test thought' ]    │ new ObjectId("64c27e7d8ab162ce8c80ddcf") │
+│    1    │  'ajavadi'   │   'ajavadi@gmail.com'   │                                 []                                 │ new ObjectId("64c27e7d8ab162ce8c80ddd0") │
+│    2    │  'Mike123'   │   'Mike123@gmail.com'   │                   [ 'society of the spectacle' ]                   │ new ObjectId("64c27e7d8ab162ce8c80ddd1") │
+│    3    │  'John123'   │   'John123@gmail.com'   │             [ 'the revolution will not be televised' ]             │ new ObjectId("64c27e7d8ab162ce8c80ddd2") │
+│    4    │  'Jane123'   │   'Jane123@gmail.com'   │                   [ ' I think therefore I am' ]                    │ new ObjectId("64c27e7d8ab162ce8c80ddd3") │
+│    5    │ 'Alanwat123' │ 'AlanWatt123@gmail.com' │ [ 'Reclaimation of your brain is worth moret than cash or fame.' ] │ new ObjectId("64c27e7d8ab162ce8c80ddd4") │
 └─────────┴──────────────┴─────────────────────────┴────────────────────────────────────────────────────────────────────┴──────────────────────────────────────────┘
+┌─────────┬────────────────────────────────┬──────────────┬────────────────────────────────────────────────────────────────┬──────────────────────────────────────────┐
+│ (index) │          thoughtText           │   username   │                           reactions                            │                   _id                    │
+├─────────┼────────────────────────────────┼──────────────┼────────────────────────────────────────────────────────────────┼──────────────────────────────────────────┤
+│    0    │    'this is a test thought'    │ 'lernantino' │ [ 'this is a test reaction', 'this is another test reaction' ] │ new ObjectId("64c27e7d8ab162ce8c80ddd7") │
+│    1    │ 'this is another test thought' │  'ajavadi'   │                               []                               │ new ObjectId("64c27e7d8ab162ce8c80ddd8") │
+└─────────┴────────────────────────────────┴──────────────┴────────────────────────────────────────────────────────────────┴──────────────────────────────────────────┘
 all done with seeding
