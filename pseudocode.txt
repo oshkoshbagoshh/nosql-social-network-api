@@ -1,0 +1,31 @@
+/*
+ * @Author: Someone 
+ * @Email: someone@example.com
+ * @Date: 2023-07-27 07:49:27 
+ * @Last Modified by: Someone
+ * @Last Modified time: 2023-07-27 08:12:16
+ * @Description: Data Model for NoSQL Database
+ */
+ */
+
+// ESM
+import { faker } from '@faker-js/faker';
+
+// CJS
+const { faker } = require('@faker-js/faker');
+
+export function createRandomUser(): User {
+  return {
+    userId: faker.datatype.uuid(),
+    username: faker.internet.userName(),
+    email: faker.internet.email(),
+    avatar: faker.image.avatar(),
+    password: faker.internet.password(),
+    birthdate: faker.date.birthdate(),
+    registeredAt: faker.date.past(),
+  };
+}
+
+export const USERS: User[] = faker.helpers.multiple(createRandomUser, {
+  count: 5,
+});

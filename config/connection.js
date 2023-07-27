@@ -1,6 +1,8 @@
-// set up the connections here and export them
-const mongoose = require('mongoose');
+// set up variable for database connection
+const { connect, connection } = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/socialNetworkDB');
+connect("mongodb://localhost:27017/nosql-social-network-api")
 
-module.exports = mongoose.connection;
+module.exports = connection;
+
+//mongodb://localhost:27017

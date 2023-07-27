@@ -1,23 +1,37 @@
-// set up all of our variables
-const express = require('express');
-const mongoose = require('mongoose');
-const routes = require('./routes');
-const app = express();
-const PORT = process.env.PORT || 3001;
-// set up variable for database connection
-const db = require('./config/connection');
-// const seedUsers = require('./utils/seed');
+/*
+ * @Author: Someone 
+ * @Email: someone@example.com
+ * @Date: 2023-07-27 08:22:01 
+ * @Last Modified by: Someone
+ * @Last Modified time: 2023-07-27 08:25:57
+ * @Description: index js file
+ */
 
-// middleware
-app.use(express.json());
+const express = require('express');
+const db = require('./config/connection');
+const routes = require('./routes');
+const cwd = process.cwd();// current working directory
+const faker = require('faker'); // https://www.npmjs.com/package/faker
+
+
+const PORT = process.env.PORT || 3001; // process.env.PORT 
+const app = express();
+
+const activity = cwd.includes("01-Activities")
+    ? cwd.split("01-Activities/")[1]
+    : cwd;
+
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(routes);
 
-
-// connect to the database
-db.once('open', async () =>  {
-    console.log('Connected to the database.');
-    // await seedUsers();
-    app.listen(PORT, () => console.log(`Now listening on localhost:${PORT}`));
+db.once('open', () => {
+    app.listen(PORT, () => {
+        console.log(`API server running on port ${PORT}!`);
+        console.log(`Activity: ${activity}`);
+        console.log(`cwd: ${cwd}`);
+        console.log(`faker: ${faker.name.findName()}`);
+    });
 }
+
 );

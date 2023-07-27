@@ -1,11 +1,12 @@
 const router = require('express').Router();
-// const apiRoutes = require('./api');
-const apiRoutes = require('./apiRoutes');
+const apiRoutes = require('./api');
 
 router.use('/api', apiRoutes);
 
 router.use((req, res) => {
-    return res.status(404).send('<h1>Wrong Route!</h1>');
+    return res.send("Wrong Route!");
 });
 
 module.exports = router;
+
+// //mongodb://localhost:27017
