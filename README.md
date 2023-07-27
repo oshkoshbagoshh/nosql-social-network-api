@@ -38,7 +38,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
  ```sh 
  npm run seed > seeddataoutput.txt 
 ```
-![seedata](image.png)
+!['./assets/seeddata-image.png](image.png)
 
 
 ## Credits

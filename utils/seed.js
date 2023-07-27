@@ -70,10 +70,12 @@ connection.once('open', async () => {
   // delete thoughts 
   await Thought.deleteMany({})
   //bulk create thoughts
+  const stringedThoughts = JSON.stringify(thoughts);
+  console.log(stringedThoughts);
   await Thought.collection.insertMany(thoughts);
   // log the data
   console.table(users); // log the data
-  console.table(thoughts); // log the data
+  console.table(stringedThoughts); // log the data
   console.log('all done with seeding'); // log that the script is done
   process.exit(0); // exit the script
 });
