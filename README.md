@@ -62,7 +62,8 @@ npm start
  ```sh 
  npm run seed > seeddataoutput.txt 
 ```
-!['./assets/seeddata-image.png](image.png)
+
+![[seedata](/assets/seeddata-image.png)(image.png)
 
 
 ## Credits
